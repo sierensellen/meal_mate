@@ -1,5 +1,6 @@
 // /stories/pages/home.stories.jsx
 
+import { ComponentMeta } from '@storybook/react';
 import Home from "../../pages/index";
 
 export default {
