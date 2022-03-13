@@ -1,4 +1,4 @@
-// /stories/pages/home.stories.jsx
+// /stories/pages/home.stories.tsx
 
 import Home from "../../pages/index";
 
@@ -7,4 +7,4 @@ export default {
   component: Home,
 };
 
-export const HomePage = () => <Home />
+export const HomePage = () => <Home isConnected />
