@@ -27,7 +27,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/modules/shared/home.stories.jsx"  ],
+, "src/modules/shared/home.stories.tsx"  ],
   "exclude": [
     "node_modules"
   ]
