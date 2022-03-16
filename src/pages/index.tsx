@@ -5,6 +5,9 @@ import Head from 'next/head';
 import Icon from '@shared/components/icon/Icon'
 import { Icons } from '@shared/components/icon/Icon.types'
 
+import Button from '@shared/components/button/Button'
+import { ButtonProps } from '@shared/components/button/Button.types'
+
 const Home: NextPage<HomeProps> = ({ isConnected }) => {
   return (
     <div className="container">
@@ -26,8 +29,10 @@ const Home: NextPage<HomeProps> = ({ isConnected }) => {
             for instructions.
           </h2>
         )}
-  
+
+        <Button href="https://google.com">
         <Icon name={Icons.Vriezer}/>
+        </Button>
 
           <p className="description">
             Get started by editing <code>pages/index.js</code>
