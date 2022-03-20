@@ -20,4 +20,4 @@ export const Default = Template.bind({});
 Default.args = { ...dummy };
 
 export const Small = Template.bind({});
-Small.args = { ...dummy };
+Small.args = { ...dummy, small: true };
