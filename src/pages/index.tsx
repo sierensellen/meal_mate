@@ -8,6 +8,7 @@ import { Icons } from '@shared/components/icon/Icon.types'
 import Button from '@shared/components/button/Button'
 import { ButtonProps } from '@shared/components/button/Button.types'
 import Tag from '@shared/components/tag/Tag';
+import Card from '@shared/components/card/Card';
 
 const Home: NextPage<HomeProps> = ({ isConnected }) => {
   return (
@@ -31,45 +32,47 @@ const Home: NextPage<HomeProps> = ({ isConnected }) => {
           </h2>
         )}
 
-        <Button href="https://google.com">
-        <Icon name={Icons.Vriezer}/>
-        </Button>
+        {/* <Button href="https://google.com">
+          <Icon name={Icons.Vriezer} />
+        </Button> */}
 
-        <Tag iconName={Icons.Vriezer} label={"test"} ></Tag>
+        {/* <Tag iconName={Icons.Vriezer} label={"test"} ></Tag> */}
 
-          <p className="description">
-            Get started by editing <code>pages/index.js</code>
-          </p>
+        <Card img={{ path: "/assets/img/jpg/recipe.jpg", alt: "recipe" }} title={"Balletjes in tomatensaus"} tags={[{ label: "3,95", iconName: Icons.Vriezer }, { label: "veel", iconName: Icons.Vriezer }, { label: "lang", iconName: Icons.Vriezer }]} icons={[{ name: Icons.Vriezer }, { name: Icons.Vriezer }]} />
 
-          <div className="grid">
-            <a href="https://nextjs.org/docs" className="card">
-              <h3>Documentation &rarr;</h3>
-              <p>Find in-depth information about Next.js features and API.</p>
-            </a>
+        <p className="description">
+          Get started by editing <code>pages/index.js</code>
+        </p>
 
-            <a href="https://nextjs.org/learn" className="card">
-              <h3>Learn &rarr;</h3>
-              <p>Learn about Next.js in an interactive course with quizzes!</p>
-            </a>
+        <div className="grid">
+          <a href="https://nextjs.org/docs" className="card">
+            <h3>Documentation &rarr;</h3>
+            <p>Find in-depth information about Next.js features and API.</p>
+          </a>
 
-            <a
-              href="https://github.com/vercel/next.js/tree/canary/examples"
-              className="card"
-            >
-              <h3>Examples &rarr;</h3>
-              <p>Discover and deploy boilerplate example Next.js projects.</p>
-            </a>
+          <a href="https://nextjs.org/learn" className="card">
+            <h3>Learn &rarr;</h3>
+            <p>Learn about Next.js in an interactive course with quizzes!</p>
+          </a>
 
-            <a
-              href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              className="card"
-            >
-              <h3>Deploy &rarr;</h3>
-              <p>
-                Instantly deploy your Next.js site to a public URL with Vercel.
-              </p>
-            </a>
-          </div>
+          <a
+            href="https://github.com/vercel/next.js/tree/canary/examples"
+            className="card"
+          >
+            <h3>Examples &rarr;</h3>
+            <p>Discover and deploy boilerplate example Next.js projects.</p>
+          </a>
+
+          <a
+            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            className="card"
+          >
+            <h3>Deploy &rarr;</h3>
+            <p>
+              Instantly deploy your Next.js site to a public URL with Vercel.
+            </p>
+          </a>
+        </div>
       </main>
 
       <footer>

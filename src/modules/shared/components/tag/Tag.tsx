@@ -7,7 +7,7 @@ const Tag: FC<TagProps> = ({ label, iconName }) => {
     return (
         <span className={styles["c-tag"]}>
             <Icon name={iconName} small={true} />
-            <p>{label}</p>
+            <p className={styles["c-tag_label"]}>{label}</p>
         </span>
 
     )

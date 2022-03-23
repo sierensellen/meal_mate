@@ -1,4 +1,6 @@
-export interface IconProps {
+import { DefaultComponentProps } from "@shared/types";
+
+export interface IconProps extends DefaultComponentProps {
     name: Icons;
     small ?: boolean;
 }
