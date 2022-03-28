@@ -3,20 +3,9 @@ module.exports = {
     "../src/**/*.stories.mdx",
     "../src/**/*.stories.@(js|jsx|ts|tsx)"
   ],
+  staticDirs: ['../public'],
   "addons": [
-    {
-      name: "@storybook/preset-scss",
-      options: {
-        sassLoaderOptions: {
-          sassOptions: {
-            includePaths: ['src']
-          }
-        }
-      }
-    },
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
+    "storybook-addon-next",
   ],
   "framework": "@storybook/react",
   "core": {
