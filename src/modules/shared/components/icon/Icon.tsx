@@ -2,12 +2,15 @@ import { IconProps } from './Icon.types';
 import styles from './Icon.module.scss';
 import React, { FC } from 'react'
 import clsx from 'clsx';
+import Image from 'next/image';
 
-const Icon: FC<IconProps> = ({ name, small = false }) => {
+const Icon: FC<IconProps> = ({ name, small = false, className }) => {
     return (
-        <span className={clsx(styles["c-icon"], small && styles["c-icon__small"])}>
-            <img src={`/assets/icons/${name}.svg`} alt={name} />
-        </span>
+        <div className={className}>
+            <span className={clsx(styles["c-icon"], small && styles["c-icon_small"])}>
+                <Image src={`/assets/icons/${name}.svg`} alt={name} layout="fill" objectFit='contain' />
+            </span>
+        </div>
     )
 }
 

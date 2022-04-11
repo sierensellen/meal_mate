@@ -1,13 +1,8 @@
 import { HomeProps } from '@shared/types/Home.types';
 import { NextPage } from 'next';
 import Head from 'next/head';
-// import clientPromise from '../../lib/mongodb';
-import Icon from '@shared/components/icon/Icon'
-import { Icons } from '@shared/components/icon/Icon.types'
-
-import Button from '@shared/components/button/Button'
-import { ButtonProps } from '@shared/components/button/Button.types'
-import Tag from '@shared/components/tag/Tag';
+import { CardList } from '@shared/components';
+import { cardListMock } from '@shared/components/CardList/cardList.mock';
 
 const Home: NextPage<HomeProps> = ({ isConnected }) => {
   return (
@@ -16,6 +11,8 @@ const Home: NextPage<HomeProps> = ({ isConnected }) => {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <CardList cards={cardListMock.cards} />
 
       <main>
         <h1 className="title">
@@ -31,45 +28,45 @@ const Home: NextPage<HomeProps> = ({ isConnected }) => {
           </h2>
         )}
 
-        <Button href="https://google.com">
-        <Icon name={Icons.Vriezer}/>
-        </Button>
+        {/* <Button href="https://google.com">
+          <Icon name={Icons.Vriezer} />
+        </Button> */}
 
-        <Tag iconName={Icons.Vriezer} label={"test"} ></Tag>
+        {/* <Tag iconName={Icons.Vriezer} label={"test"} ></Tag> */}
 
-          <p className="description">
-            Get started by editing <code>pages/index.js</code>
-          </p>
+        <p className="description">
+          Get started by editing <code>pages/index.js</code>
+        </p>
 
-          <div className="grid">
-            <a href="https://nextjs.org/docs" className="card">
-              <h3>Documentation &rarr;</h3>
-              <p>Find in-depth information about Next.js features and API.</p>
-            </a>
+        <div className="grid">
+          <a href="https://nextjs.org/docs" className="card">
+            <h3>Documentation &rarr;</h3>
+            <p>Find in-depth information about Next.js features and API.</p>
+          </a>
 
-            <a href="https://nextjs.org/learn" className="card">
-              <h3>Learn &rarr;</h3>
-              <p>Learn about Next.js in an interactive course with quizzes!</p>
-            </a>
+          <a href="https://nextjs.org/learn" className="card">
+            <h3>Learn &rarr;</h3>
+            <p>Learn about Next.js in an interactive course with quizzes!</p>
+          </a>
 
-            <a
-              href="https://github.com/vercel/next.js/tree/canary/examples"
-              className="card"
-            >
-              <h3>Examples &rarr;</h3>
-              <p>Discover and deploy boilerplate example Next.js projects.</p>
-            </a>
+          <a
+            href="https://github.com/vercel/next.js/tree/canary/examples"
+            className="card"
+          >
+            <h3>Examples &rarr;</h3>
+            <p>Discover and deploy boilerplate example Next.js projects.</p>
+          </a>
 
-            <a
-              href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              className="card"
-            >
-              <h3>Deploy &rarr;</h3>
-              <p>
-                Instantly deploy your Next.js site to a public URL with Vercel.
-              </p>
-            </a>
-          </div>
+          <a
+            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            className="card"
+          >
+            <h3>Deploy &rarr;</h3>
+            <p>
+              Instantly deploy your Next.js site to a public URL with Vercel.
+            </p>
+          </a>
+        </div>
       </main>
 
       <footer>
