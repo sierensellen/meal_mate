@@ -5,7 +5,7 @@ import clsx from 'clsx';
 
 const Icon: FC<IconProps> = ({ name, small = false }) => {
     return (
-        <span className={clsx(styles["c-icon"], small && styles["c-icon_small"])}>
+        <span className={clsx(styles["c-icon"], small && styles["c-icon__small"])}>
             <img src={`/assets/icons/${name}.svg`} alt={name} />
         </span>
     )
