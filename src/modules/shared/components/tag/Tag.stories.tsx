@@ -1,7 +1,7 @@
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import Link from 'next/link';
 import Tag from "./Tag";
+import { tagMock } from './tag.mock';
 
 
 export default {
@@ -9,13 +9,8 @@ export default {
     component: Tag,
 } as ComponentMeta<typeof Tag>;
 
-const dummy = {
-    href: "https://www.google.com",
-    isExternal: true
-}
-
 // export const Icon = () => <Icon name='test' href='/icons/vriezer.svg' path='assets/icons/vriezer.svg' />
 const Template: ComponentStory<typeof Tag> = (args) => <Tag {...args} />;
 
 export const Default = Template.bind({});
-Default.args = { ...dummy };
+Default.args = { ...tagMock };
