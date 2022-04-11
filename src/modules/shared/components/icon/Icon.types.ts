@@ -1,8 +1,8 @@
-import { DefaultComponentProps } from "@shared/types";
+import { DefaultComponentProps } from '@shared/types';
 
 export interface IconProps extends DefaultComponentProps {
-    name: Icons;
-    small ?: boolean;
+	name: Icons;
+	small?: boolean;
 }
 
 export const enum Icons {
