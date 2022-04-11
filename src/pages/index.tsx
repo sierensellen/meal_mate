@@ -10,6 +10,7 @@ import { ButtonProps } from '@shared/components/button/Button.types'
 import Tag from '@shared/components/tag/Tag';
 import Card from '@shared/components/card/Card';
 import CardList from '@shared/components/CardList/CardList';
+import { cardListMock } from '@shared/components/CardList/cardList.mock';
 
 const Home: NextPage<HomeProps> = ({ isConnected }) => {
   return (
@@ -19,32 +20,7 @@ const Home: NextPage<HomeProps> = ({ isConnected }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <CardList cards={[{
-        img: { path: "/assets/img/jpg/recipe.jpg", alt: "recipe" },
-        title: "Balletjes in tomatensaus",
-        tags: [{ label: "3,95", iconName: Icons.Vriezer }, { label: "veel", iconName: Icons.Vriezer }, { label: "lang", iconName: Icons.Vriezer }],
-        icons: [{ name: Icons.Vriezer }]
-      }, {
-        img: { path: "/assets/img/jpg/recipe.jpg", alt: "recipe" },
-        title: "Balletjes in tomatensaus",
-        tags: [{ label: "3,95", iconName: Icons.Vriezer }, { label: "veel", iconName: Icons.Vriezer }, { label: "lang", iconName: Icons.Vriezer }],
-        icons: [{ name: Icons.Vriezer }]
-      }, {
-        img: { path: "/assets/img/jpg/recipe.jpg", alt: "recipe" },
-        title: "Balletjes in tomatensaus",
-        tags: [{ label: "3,95", iconName: Icons.Vriezer }, { label: "veel", iconName: Icons.Vriezer }, { label: "lang", iconName: Icons.Vriezer }],
-        icons: [{ name: Icons.Vriezer }]
-      }, {
-        img: { path: "/assets/img/jpg/recipe.jpg", alt: "recipe" },
-        title: "Balletjes in tomatensaus",
-        tags: [{ label: "3,95", iconName: Icons.Vriezer }, { label: "veel", iconName: Icons.Vriezer }, { label: "lang", iconName: Icons.Vriezer }],
-        icons: [{ name: Icons.Vriezer }]
-      }, {
-        img: { path: "/assets/img/jpg/recipe.jpg", alt: "recipe" },
-        title: "Balletjes in tomatensaus",
-        tags: [{ label: "3,95", iconName: Icons.Vriezer }, { label: "veel", iconName: Icons.Vriezer }, { label: "lang", iconName: Icons.Vriezer }],
-        icons: [{ name: Icons.Vriezer }]
-      }]} />
+      <CardList cards={cardListMock.cards} />
 
       <main>
         <h1 className="title">
