@@ -1,8 +1,15 @@
 // import App from 'next/app'
 import "styles/global.scss";
+import {QueryClient, QueryClientProvider} from 'react-query'
 
 function MyApp({ Component, pageProps }) {
-    return <Component {...pageProps} />
+   // Create a client
+ const queryClient = new QueryClient()
+    return (
+    <QueryClientProvider client={queryClient}>
+      <Component {...pageProps} />
+    </QueryClientProvider>
+    )
   }
   
   // Only uncomment this method if you have blocking data requirements for
