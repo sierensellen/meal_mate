@@ -9,21 +9,21 @@ import clsx from 'clsx';
 const Card: FC<CardProps> = ({ img, title, tags, icons, className }) => {
     return (
         <article className={clsx(className, styles["c-card"])}>
-            <div className={styles["c-card_image"]}>
+            <div className={styles["c-card__image"]}>
                 <Image src={img.path} alt={img.alt} layout='fill' objectFit='cover' />
             </div>
-            <div className={styles["c-card_content"]}>
+            <div className={styles["c-card__content"]}>
                 <h3>{title}</h3>
-                <div className={styles["c-card_tags"]}>
+                <div className={styles["c-card__tags"]}>
                     {tags.map((tag, index) => {
                         return (
                             <Tag key={`tag-${index}`} {...tag} />
                         )
                     })}
                 </div>
-                <div className={styles["c-card_icons"]}>
+                <div className={styles["c-card__icons"]}>
                     {icons.map((icon, index) => (
-                        <Icon {...icon} className={styles["c-card_icon"]} key={`icon-${index}`} />
+                        <Icon {...icon} className={styles["c-card__icon"]} key={`icon-${index}`} />
                     ))}
                 </div>
             </div>
