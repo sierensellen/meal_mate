@@ -1,7 +1,6 @@
-import {Icons} from "../Icon/Icon.types"
+import { Icons } from '../Icon/Icon.types';
 
 export interface TagProps {
-    label: string;
-    iconName: Icons;
-
+	label: string;
+	iconName: Icons;
 }

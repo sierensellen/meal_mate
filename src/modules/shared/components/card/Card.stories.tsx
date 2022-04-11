@@ -1,13 +1,11 @@
-
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import Card from "./Card";
-import { Icons } from '../Icon/Icon.types';
+
+import Card from './Card';
 import { cardMock } from './card.mock';
 
-
 export default {
-    title: "Componente/Tag",
-    component: Card,
+	title: 'Componente/Tag',
+	component: Card,
 } as ComponentMeta<typeof Card>;
 
 // export const Icon = () => <Icon name='test' href='/icons/vriezer.svg' path='assets/icons/vriezer.svg' />

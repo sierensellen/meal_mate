@@ -1,5 +1,5 @@
-import { CardProps } from "../Card/Card.types";
+import { CardProps } from '../Card/Card.types';
 
 export interface CardListProps {
-    cards: CardProps[];
+	cards: CardProps[];
 }
