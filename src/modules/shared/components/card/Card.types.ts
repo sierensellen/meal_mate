@@ -1,11 +1,11 @@
-import { IconProps } from "../icon/Icon.types";
-import { TagProps } from "../tag/Tag.types";
-import { DefaultComponentProps } from "@shared/types";
-import {Image} from '@shared/types';
+import { DefaultComponentProps, Image } from '@shared/types';
+
+import { IconProps } from '../Icon/Icon.types';
+import { TagProps } from '../Tag/Tag.types';
 
 export interface CardProps extends DefaultComponentProps {
-    img: Image;
-    title: string;
-    tags: TagProps[];
-    icons?: IconProps[];
+	img: Image;
+	title: string;
+	tags: TagProps[];
+	icons?: IconProps[];
 }

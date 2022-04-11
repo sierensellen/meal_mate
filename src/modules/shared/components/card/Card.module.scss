@@ -5,17 +5,15 @@
     height: 230px;
     display: grid;
     position: relative;
-    .c-card_image {
+
+    &__image {
         position: relative;
-        // height: 230px;
         width: 100%;
         grid-row: 1 / 2;
         grid-column: 1 / 2;
     }
     
-    
-    .c-card_content {
-        // position: absolute;
+    &__content {
         grid-row: 1 / 2;
         grid-column: 1 / 2;
         align-self: end;
@@ -25,25 +23,25 @@
             color: $c-white;
             padding: $spacer;
         }
+    }
 
-        .c-card_tags {
-            display: flex;
-            justify-content: space-between;
-            background-color: $c-white;
-            padding: $spacer;
-        }
+    &__tags {
+        display: flex;
+        justify-content: space-between;
+        background-color: $c-white;
+        padding: $spacer;
+    }
 
-        .c-card_icons {
-            position: absolute;
-            top: $spacer;
-            right: $spacer;
+    &__icons {
+        position: absolute;
+        top: $spacer;
+        right: $spacer;
+    }
 
-            .c-card_icon {
-                padding: $spacer;
-                background-color: $c-white;
-                margin: $spacer;
-                display: block;
-            }
-        }
+    &__icon {
+        padding: $spacer;
+        background-color: $c-white;
+        margin: $spacer;
+        display: block;
     }
 }
