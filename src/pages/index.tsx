@@ -7,6 +7,7 @@ import { Icons } from '@shared/components/icon/Icon.types'
 
 import Button from '@shared/components/button/Button'
 import { ButtonProps } from '@shared/components/button/Button.types'
+import Tag from '@shared/components/tag/Tag';
 
 const Home: NextPage<HomeProps> = ({ isConnected }) => {
   return (
@@ -33,6 +34,8 @@ const Home: NextPage<HomeProps> = ({ isConnected }) => {
         <Button href="https://google.com">
         <Icon name={Icons.Vriezer}/>
         </Button>
+
+        <Tag iconName={Icons.Vriezer} label={"test"} ></Tag>
 
           <p className="description">
             Get started by editing <code>pages/index.js</code>
