@@ -1,14 +1,8 @@
 import { HomeProps } from '@shared/types/Home.types';
 import { NextPage } from 'next';
 import Head from 'next/head';
-// import clientPromise from '../../lib/mongodb';
-import Icon from '@shared/components/icon/Icon'
-import { Icons } from '@shared/components/icon/Icon.types'
-
-import Button from '@shared/components/button/Button'
-import { ButtonProps } from '@shared/components/button/Button.types'
-import Tag from '@shared/components/tag/Tag';
-import Card from '@shared/components/card/Card';
+import { CardList } from '@shared/components';
+import { cardListMock } from '@shared/components/CardList/cardList.mock';
 
 const Home: NextPage<HomeProps> = ({ isConnected }) => {
   return (
@@ -17,6 +11,8 @@ const Home: NextPage<HomeProps> = ({ isConnected }) => {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <CardList cards={cardListMock.cards} />
 
       <main>
         <h1 className="title">
@@ -37,8 +33,6 @@ const Home: NextPage<HomeProps> = ({ isConnected }) => {
         </Button> */}
 
         {/* <Tag iconName={Icons.Vriezer} label={"test"} ></Tag> */}
-
-        <Card img={{ path: "/assets/img/jpg/recipe.jpg", alt: "recipe" }} title={"Balletjes in tomatensaus"} tags={[{ label: "3,95", iconName: Icons.Vriezer }, { label: "veel", iconName: Icons.Vriezer }, { label: "lang", iconName: Icons.Vriezer }]} icons={[{ name: Icons.Vriezer }, { name: Icons.Vriezer }]} />
 
         <p className="description">
           Get started by editing <code>pages/index.js</code>

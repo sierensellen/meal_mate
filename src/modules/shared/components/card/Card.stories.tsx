@@ -1,9 +1,9 @@
 
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import Link from 'next/link';
-import Icon from '../icon/Icon';
+import Icon from '../Icon/Icon';
 import Card from "./Card";
-import { Icons } from '../icon/Icon.types';
+import { Icons } from '../Icon/Icon.types';
 
 
 export default {

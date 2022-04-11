@@ -1,13 +1,14 @@
 import { CardProps } from './Card.types';
 import styles from './Card.module.scss';
 import React, { FC } from 'react';
-import Icon from "../icon/Icon";
-import Tag from "../tag/Tag"
+import Icon from "../Icon/Icon";
+import Tag from "../Tag/Tag"
 import Image from 'next/image';
+import clsx from 'clsx';
 
-const Card: FC<CardProps> = ({ img, title, tags, icons }) => {
+const Card: FC<CardProps> = ({ img, title, tags, icons, className }) => {
     return (
-        <article className={styles["c-card"]}>
+        <article className={clsx(className, styles["c-card"])}>
             <div className={styles["c-card_image"]}>
                 <Image src={img.path} alt={img.alt} layout='fill' objectFit='cover' />
             </div>
