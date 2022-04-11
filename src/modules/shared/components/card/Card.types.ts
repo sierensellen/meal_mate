@@ -1,5 +1,5 @@
-import { IconProps } from "../icon/Icon.types";
-import { TagProps } from "../tag/Tag.types";
+import { IconProps } from "../Icon/Icon.types";
+import { TagProps } from "../Tag/Tag.types";
 import { DefaultComponentProps } from "@shared/types";
 import {Image} from '@shared/types';
 

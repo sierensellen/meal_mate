@@ -1,4 +1,4 @@
-import { Icons } from "../icon/Icon.types";
+import { Icons } from "../Icon/Icon.types";
 import { CardListProps } from "./CardList.types";
 
 export const cardListMock: CardListProps = {

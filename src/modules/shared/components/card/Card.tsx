@@ -1,8 +1,8 @@
 import { CardProps } from './Card.types';
 import styles from './Card.module.scss';
 import React, { FC } from 'react';
-import Icon from "../icon/Icon";
-import Tag from "../tag/Tag"
+import Icon from "../Icon/Icon";
+import Tag from "../Tag/Tag"
 import Image from 'next/image';
 import clsx from 'clsx';
 

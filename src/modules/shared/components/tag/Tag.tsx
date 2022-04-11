@@ -1,7 +1,7 @@
 import { TagProps } from './Tag.types';
 import styles from './Tag.module.scss';
 import React, { FC } from 'react'
-import Icon from "../icon/Icon"
+import Icon from "../Icon/Icon"
 
 const Tag: FC<TagProps> = ({ label, iconName }) => {
     return (
