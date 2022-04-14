@@ -3,3 +3,4 @@ export * from './Card';
 export * from './CardList';
 export * from './Icon';
 export * from './Tag';
+export * from './Input';

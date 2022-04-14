@@ -2,8 +2,8 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import React, { FC } from 'react';
 
-import Icon from '../icon/Icon';
-import Tag from '../tag/Tag';
+import Icon from '../Icon/Icon';
+import Tag from '../Tag/Tag';
 
 import styles from './Card.module.scss';
 import { CardProps } from './Card.types';

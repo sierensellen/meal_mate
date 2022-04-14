@@ -1,4 +1,4 @@
-@use "styles/abstract" as *;
+@use "../../../../styles/abstract" as *;
 
 .c-card {
     width: 100%;
@@ -12,13 +12,13 @@
         grid-row: 1 / 2;
         grid-column: 1 / 2;
     }
-    
+
     &__content {
         grid-row: 1 / 2;
         grid-column: 1 / 2;
         align-self: end;
         z-index: 1;
-        
+
         h3 {
             color: $c-white;
             padding: $spacer;

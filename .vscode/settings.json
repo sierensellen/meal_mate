@@ -2,28 +2,27 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
+      "source.fixAll.eslint": true
     },
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
+      "source.fixAll.eslint": true
     },
   },
-
   "css.validate": false,
   "scss.validate": false,
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.codeActionsOnSave": {
-        "source.fixAll.stylelint": true
+      "source.fixAll.stylelint": true
     },
   },
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.codeActionsOnSave": {
-        "source.fixAll.stylelint": true
+      "source.fixAll.stylelint": true
     },
   },
   "stylelint.validate": [
@@ -31,5 +30,6 @@
     "less",
     "postcss",
     "scss"
-  ]
+  ],
+  "editor.formatOnSave": true
 }

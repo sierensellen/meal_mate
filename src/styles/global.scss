@@ -1,13 +1,14 @@
-@forward "base";
-@use "abstract" as *;
+@forward 'base';
+@use 'abstract' as *;
 
-  html,
-  body {
-    padding: 0;
-    margin: 0;
-    font-family: Helvetica, sans-serif;
-    background-color: #5B6FFF;
-  }
+html,
+body {
+	padding: 0;
+	margin: 0;
+	font-family: Helvetica, sans-serif;
+
+	// background-color: #5B6FFF;
+}
 
 * {
 	box-sizing: border-box;
