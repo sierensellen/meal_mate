@@ -4,3 +4,5 @@ export * from './CardList';
 export * from './Icon';
 export * from './Tag';
 export * from './Input';
+export * from './Select';
+export * from './CheckboxSlider';

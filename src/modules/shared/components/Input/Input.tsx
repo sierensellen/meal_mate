@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import styles from './Input.module.scss';
 import { InputProps } from './Input.types';
 
-const Tag: FC<InputProps> = ({ onChange, icon, label, ...attributes }) => {
+const Input: FC<InputProps> = ({ onChange, icon, label, ...attributes }) => {
 	return (
 		<label className={styles['c-label']}>
 			<span className={styles['c-label__content']}>{label && label}</span>
@@ -13,4 +13,4 @@ const Tag: FC<InputProps> = ({ onChange, icon, label, ...attributes }) => {
 	);
 };
 
-export default Tag;
+export default Input;

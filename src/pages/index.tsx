@@ -2,8 +2,10 @@ import { NextPage } from 'next';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 
-import { CardList, CardProps, Icons, Input } from '@shared/components';
+import { CardList, CardProps, CheckboxSlider, Icons, Input, Select } from '@shared/components';
+import { checkboxSliderMock } from '@shared/components/CheckboxSlider/checkboxSlider.mock';
 import { inputMock } from '@shared/components/Input/input.mock';
+import { selectMock } from '@shared/components/Select/select.mock';
 import { Meal } from '@shared/types';
 import { HomeProps } from '@shared/types/Home.types';
 
@@ -89,6 +91,8 @@ const Home: NextPage<HomeProps> = () => {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Input {...inputMock} />
+			<Select {...selectMock} />
+			<CheckboxSlider {...checkboxSliderMock} />
 			<main>
 				{mappedMeals && <CardList cards={mappedMeals} />}
 				<button onClick={clickHandler}>test</button>
