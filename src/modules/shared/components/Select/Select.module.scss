@@ -1,0 +1,31 @@
+@use '../../../../styles/abstract' as *;
+
+.c-label {
+	position: relative;
+
+	&__content {
+		font-size: 1.2rem;
+		margin-left: $spacer;
+	}
+
+	&__icon {
+		position: absolute;
+		top: 1.5rem;
+		left: $spacer;
+	}
+
+	.c-select {
+		font-size: 2rem;
+		border: black 1px solid;
+		border-radius: 24px;
+		background-color: transparent;
+		display: block;
+		position: relative;
+		padding: $spacer-small $spacer-small $spacer-small 35px;
+
+
+		&::placeholder {
+			color: $c-grey;
+		}
+	}
+}
