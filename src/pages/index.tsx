@@ -90,8 +90,9 @@ const Home: NextPage<HomeProps> = () => {
 				<title>Create Next App</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<Input {...inputMock} />
+			<Input big={false} {...inputMock} />
 			<Select {...selectMock} />
+			<Input big={true} {...inputMock} />
 			<CheckboxSlider {...checkboxSliderMock} />
 			<main>
 				{mappedMeals && <CardList cards={mappedMeals} />}

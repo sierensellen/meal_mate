@@ -27,4 +27,16 @@
 			color: $c-grey;
 		}
 	}
+
+	&__big {
+		.c-input {
+			border: none;
+			font-size: 32px;
+			padding: $spacer-small;
+		}
+
+		.c-label__icon {
+			display: none;
+		}
+	}
 }

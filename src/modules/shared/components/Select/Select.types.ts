@@ -2,7 +2,7 @@ import { InputHTMLAttributes, ReactNode } from 'react';
 
 export interface SelectProps extends InputHTMLAttributes<HTMLSelectElement> {
 	name: string;
-	options: [OptionProps];
+	options: OptionProps[];
 	label?: string;
 	icon?: ReactNode;
 }
