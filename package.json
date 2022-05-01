@@ -12,6 +12,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.8.8",
     "@storybook/preset-scss": "^1.0.3",
     "@typescript-eslint/parser": "^5.19.0",
     "clsx": "^1.1.1",
@@ -20,8 +21,10 @@
     "next-transpile-modules": "9.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-hook-form": "^7.30.0",
     "react-query": "^3.34.19",
-    "sass": "^1.49.9"
+    "sass": "^1.49.9",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@babel/core": "7.17.5",

@@ -6,3 +6,4 @@ export * from './Tag';
 export * from './Input';
 export * from './Select';
 export * from './CheckboxSlider';
+export * from './Illustration';

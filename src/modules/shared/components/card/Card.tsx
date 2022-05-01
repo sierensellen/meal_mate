@@ -2,17 +2,37 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import React, { FC } from 'react';
 
+import { Illustration } from '@shared/components/Illustration';
+
 import Icon from '../Icon/Icon';
 import Tag from '../Tag/Tag';
 
 import styles from './Card.module.scss';
 import { CardProps } from './Card.types';
 
-const Card: FC<CardProps> = ({ img, title, tags, icons, className }) => {
+const Card: FC<CardProps> = ({
+	color,
+	bgColor,
+	rotation,
+	scale,
+	posX,
+	posY,
+	title,
+	tags,
+	icons,
+	className,
+}) => {
 	return (
 		<article className={clsx(className, styles['c-card'])}>
 			<div className={styles['c-card__image']}>
-				<Image src={img.path} alt={img.alt} layout="fill" objectFit="cover" />
+				<Illustration
+					color={color}
+					bgColor={bgColor}
+					rotation={rotation}
+					scale={scale}
+					positionX={posX}
+					positionY={posY}
+				/>
 			</div>
 			<div className={styles['c-card__content']}>
 				<h3>{title}</h3>

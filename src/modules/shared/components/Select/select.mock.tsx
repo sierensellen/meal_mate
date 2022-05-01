@@ -4,7 +4,7 @@ export const selectMock = {
 	name: 'test',
 	label: 'test',
 	onChange: (e) => {
-		console.log(e);
+		// console.log(e);
 	},
 	icon: <Icon name={Icons.Vriezer} />,
 	options: [

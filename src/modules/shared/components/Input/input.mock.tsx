@@ -6,7 +6,7 @@ export const inputMock = {
 	placeholder: 'test',
 	label: 'test',
 	onChange: (e) => {
-		console.log(e);
+		// console.log(e);
 	},
 	icon: <Icon name={Icons.Vriezer} />,
 };

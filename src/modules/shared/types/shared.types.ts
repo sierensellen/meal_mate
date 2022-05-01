@@ -12,11 +12,23 @@ export interface Ingredients {
 }
 
 export interface Meal {
-	title: string;
-	ingredients: string[];
-	afwas: string;
-	image: string;
-	price: string;
-	tijd: string;
-	vriezer: boolean;
+	bgColor: string;
+	color: string;
+	rotation: number;
+	scale: number;
+	positionX: number;
+	positionY: number;
+	name: string;
+	price: number;
+	time: number;
+	washing: string;
+	freezer: boolean;
+	ingredients: any;
+	ingredientAmounts?: any;
+}
+
+export interface Ingredient {
+	metric: string;
+	name: string;
+	category: string;
 }

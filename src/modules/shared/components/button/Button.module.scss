@@ -1,1 +1,9 @@
-// empty
+@use '../../../../styles/abstract' as *;
+
+.c-button {
+	font-size: 2rem;
+	padding: $spacer-small $spacer;
+	border: 1px solid black;
+	border-radius: 50px;
+	background-color: white;
+}

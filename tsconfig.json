@@ -2,7 +2,9 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
-      "@shared/*": ["modules/shared/*"]
+      "@shared/*": ["modules/shared/*"],
+      "@meals/*": ["modules/meals/*"],
+      "@ingredients/*": ["modules/ingredients/*"],
     },
     "target": "es5",
     "lib": [

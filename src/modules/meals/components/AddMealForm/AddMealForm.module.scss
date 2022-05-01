@@ -1,0 +1,71 @@
+@use '../../../../styles/abstract' as *;
+
+.c-form {
+	// padding-bottom: 300px;
+
+	p {
+		font-size: 2rem;
+
+		&.c-form__error {
+			color: red;
+			font-size: 1.2rem;
+		}
+	}
+
+	&__image {
+		position: relative;
+
+		&--button {
+			position: absolute;
+			bottom: $spacer-big;
+			right: $spacer-big;
+		}
+	}
+
+	&__fieldset {
+		border: none;
+		padding: $spacer-big;
+		border-top: 1px solid black;
+		border-bottom: 1px solid black;
+
+		&--bools {
+			background-color: #beecff;
+		}
+
+		&--submit {
+			background-color: #fea4bd;
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			display: flex;
+			justify-content: flex-end;
+			z-index: 2;
+		}
+
+		&--collapsed {
+			display: none;
+		}
+
+		&--name {
+			border-bottom: none;
+		}
+
+		&--inputs {
+			border-top: none;
+
+			p {
+				display: inline;
+			}
+
+			div {
+				display: inline-block;
+				margin: 0 $spacer;
+			}
+		}
+	}
+}
+
+.ingredientList {
+	padding-bottom: 200px;
+}
