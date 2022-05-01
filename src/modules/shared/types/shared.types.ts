@@ -25,6 +25,7 @@ export interface Meal {
 	freezer: boolean;
 	ingredients: any;
 	ingredientAmounts?: any;
+	method: string;
 }
 
 export interface Ingredient {

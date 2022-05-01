@@ -11,6 +11,7 @@ import {
 	Illustration,
 	Input,
 	Select,
+	Textarea,
 } from '@shared/components';
 
 import AddIngredients from '../AddIngredients/AddIngredients';
@@ -265,6 +266,21 @@ const AddMealForm: FC<AddMealFormProps> = () => {
 					{errors.name && (
 						<p className={styles['c-form__error']}>{errors.name?.message}</p>
 					)}
+					<Controller
+						name="method"
+						control={control}
+						render={({ field }) => (
+							<Textarea
+								{...field}
+								name="method"
+								label={'Bereidingswijze'}
+								placeholder={'Beschrijf hier de stappen'}
+							/>
+						)}
+					/>
+					{errors.name && (
+						<p className={styles['c-form__error']}>{errors.name?.message}</p>
+					)}
 				</fieldset>
 				<fieldset
 					className={clsx(styles['c-form__fieldset--inputs'], styles['c-form__fieldset'])}
@@ -420,6 +436,7 @@ const AddMealForm: FC<AddMealFormProps> = () => {
 								time: state.time,
 								washing: state.washing,
 								ingredients: mappedIngredients,
+								method: state.method,
 							};
 							console.log('state dat naar db gestuurd wrodt', mappedMeal);
 							postMeal(mappedMeal);

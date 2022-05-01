@@ -7,3 +7,4 @@ export * from './Input';
 export * from './Select';
 export * from './CheckboxSlider';
 export * from './Illustration';
+export * from './Textarea';

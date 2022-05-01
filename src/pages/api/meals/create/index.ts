@@ -41,6 +41,7 @@ const mapMeal = (meal) => {
 		scale: meal.scale,
 		time: meal.time,
 		washing: meal.washing,
+		method: meal.method,
 	};
 	return mappedMeal;
 };

@@ -15,5 +15,6 @@ export const ADD_MEAL_FORM_SCHEMA = () => {
 		freezer: boolean().required('Mag het in de vriezer?'),
 		ingredients: mixed(),
 		ingredientAmounts: mixed(),
+		method: string().required('hoe moet dit?'),
 	});
 };
