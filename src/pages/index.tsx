@@ -1,109 +1,101 @@
-import { HomeProps } from '@shared/types/Home.types';
 import { NextPage } from 'next';
 import Head from 'next/head';
-import clientPromise from '../../lib/mongodb';
-import Icon from '@shared/components/icon/Icon'
-import { Icons } from '@shared/components/icon/Icon.types'
-
-import Button from '@shared/components/button/Button'
-import { ButtonProps } from '@shared/components/button/Button.types'
-import Tag from '@shared/components/tag/Tag';
-import Card from '@shared/components/card/Card';
-import CardList from '@shared/components/CardList/CardList';
-import { CardProps } from '@shared/components/card/Card.types';
-import { ObjectId } from 'mongodb';
-import { Meal } from '@shared/types';
-import { usePostMeal } from 'hooks/post-meal';
-import { useGetMeals } from 'hooks/get-meals';
 import { useEffect, useState } from 'react';
 
-const Home: NextPage<HomeProps> = ({ }) => {
+import { CardProps, Icons } from '@shared/components';
+import CardList from '@shared/components/CardList/CardList';
+import { Meal } from '@shared/types';
 
-  /**
-   * hooks
-   */
+import { useGetMeals } from 'hooks/get-meals';
+import { usePostMeal } from 'hooks/post-meal';
 
-  const { data: meals, refetch: refetchMeals } = useGetMeals();
-  const { mutate: postMeal, isLoading: isLoadingPostMeal } = usePostMeal(refetchMeals);
+const Home: NextPage = () => {
+	/**
+	 * hooks
+	 */
 
-  /**
-   * state
-   */
+	const { data: meals, refetch: refetchMeals } = useGetMeals();
+	const { mutate: postMeal, isLoading: isLoadingPostMeal } = usePostMeal(refetchMeals);
 
-  const [mappedMeals, setMappedMeals] = useState<CardProps[]>([]);
+	/**
+	 * state
+	 */
 
-  /**
-   * effects
-   */
+	const [mappedMeals, setMappedMeals] = useState<CardProps[]>([]);
 
-  useEffect(() => {
-    meals && setMappedMeals(mapMeals(meals));
-  }, [meals])
+	/**
+	 * effects
+	 */
 
-  /**
-   * mapping 
-  */
-  const mapMeals = (meals: Meal[]): CardProps[] => {
-    return meals.map(meal => {
-      const icons = [];
+	useEffect(() => {
+		meals && setMappedMeals(mapMeals(meals));
+	}, [meals]);
 
-      meal.vriezer && icons.push(Icons.Vriezer);
+	/**
+	 * mapping
+	 */
+	const mapMeals = (meals: Meal[]): CardProps[] => {
+		return meals.map((meal) => {
+			const icons = [];
 
-      return {
-        title: meal.title,
-        img: { path: meal.image, alt: meal.title },
-        tags: [
-          {
-            label: meal.price, iconName: Icons.Vriezer
-          }, {
-            label: meal.afwas, iconName: Icons.Vriezer
-          },
-          {
-            label: meal.tijd, iconName: Icons.Vriezer
-          }
-        ],
-        icons
-      }
-    })
-  }
+			meal.vriezer && icons.push(Icons.Vriezer);
 
-  // console.log('mealcards', mealCards)
+			return {
+				title: meal.title,
+				img: { path: meal.image, alt: meal.title },
+				tags: [
+					{
+						label: meal.price,
+						iconName: Icons.Vriezer,
+					},
+					{
+						label: meal.afwas,
+						iconName: Icons.Vriezer,
+					},
+					{
+						label: meal.tijd,
+						iconName: Icons.Vriezer,
+					},
+				],
+				icons,
+			};
+		});
+	};
 
+	// console.log('mealcards', mealCards)
 
-  const clickHandler = () => {
-    const enteredData: Meal = {
-      title: 'test',
-      ingredients: [],
-      afwas: 'veel',
-      image: '/',
-      price: 'test',
-      tijd: 'test',
-      vriezer: true
+	const clickHandler = () => {
+		const enteredData: Meal = {
+			title: 'test',
+			ingredients: [],
+			afwas: 'veel',
+			image: '/',
+			price: 'test',
+			tijd: 'test',
+			vriezer: true,
+		};
+		postMeal(enteredData);
+	};
 
-    }
-    postMeal(enteredData)
-  }
+	/**
+	 * render
+	 */
 
-  /**
-   * render
-   */
+	return (
+		<div className="container">
+			<Head>
+				<title>Create Next App</title>
+				<link rel="icon" href="/favicon.ico" />
+			</Head>
+			<main>
+				{mappedMeals && <CardList cards={mappedMeals} />}
+				<button onClick={clickHandler}>test</button>
 
-  return (
-    <div className="container">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main>
-        {mappedMeals && <CardList cards={mappedMeals} />}
-        <button onClick={clickHandler}>test</button>
-
-        {isLoadingPostMeal && <p>loading</p>}
-      </main>
-
-    </div>
-  )
-}
+				{isLoadingPostMeal && <p>loading</p>}
+			</main>
+		</div>
+	);
+};
 
 // export async function getServerSideProps(context) {
 //   try {
@@ -115,8 +107,6 @@ const Home: NextPage<HomeProps> = ({ }) => {
 //     // const client = await clientPromise;
 //     // const db = client.db("Meals");
 //     // const meals = await db.collection("Meals").find({}).toArray();
-
-
 
 //     // // Map over meals
 //     // const parsedMeals = await Promise.all(meals.map(async meal => {

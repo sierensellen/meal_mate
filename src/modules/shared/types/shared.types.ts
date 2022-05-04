@@ -1,22 +1,22 @@
 export interface Image {
-    path: string;
-    alt?: string;
+	path: string;
+	alt?: string;
 }
 
 export interface DefaultComponentProps {
-    className?: string;
+	className?: string;
 }
 
 export interface Ingredients {
-    title: string;
+	title: string;
 }
 
 export interface Meal {
-    title: string;
-    ingredients: string[];
-    afwas: string;
-    image: string;
-    price: string;
-    tijd: string;
-    vriezer: boolean;
+	title: string;
+	ingredients: string[];
+	afwas: string;
+	image: string;
+	price: string;
+	tijd: string;
+	vriezer: boolean;
 }

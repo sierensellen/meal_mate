@@ -1,4 +1,4 @@
 export interface HomeProps {
-    isConnected: boolean;
-    meals: any;
+	isConnected: boolean;
+	meals: any;
 }
