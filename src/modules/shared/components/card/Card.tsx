@@ -12,7 +12,7 @@ const Card: FC<CardProps> = ({ img, title, tags, icons, className }) => {
 	return (
 		<article className={clsx(className, styles['c-card'])}>
 			<div className={styles['c-card__image']}>
-				<Image src={img.path} alt={img.alt} layout="fill" objectFit="cover" />
+				{img.path && <Image src={img.path} alt={img.alt} layout="fill" objectFit="cover" />}
 			</div>
 			<div className={styles['c-card__content']}>
 				<h3>{title}</h3>
