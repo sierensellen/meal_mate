@@ -4,8 +4,6 @@ import { CardProps, Icons } from '@shared/components';
 import { Meal } from '@shared/types';
 import { mapWashing } from '@shared/utils';
 
-import { Afwas } from '@meals/types';
-
 export default async function handler(req, res) {
 	if (req.method === 'GET') {
 		const client = await MongoClient.connect(process.env.MONGODB_URI);

@@ -1,12 +1,10 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
-import { useState } from 'react';
 
-import { CardList, CardProps } from '@shared/components';
+import { CardList } from '@shared/components';
 import { HomeProps } from '@shared/types/Home.types';
 
 import { useGetMeals } from 'hooks/get-meals';
-import { usePostMeal } from 'hooks/post-meal';
 
 const Home: NextPage<HomeProps> = () => {
 	/**
