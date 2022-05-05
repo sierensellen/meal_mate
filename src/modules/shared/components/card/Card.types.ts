@@ -13,4 +13,5 @@ export interface CardProps extends DefaultComponentProps {
 	scale: number;
 	posX: number;
 	posY: number;
+	id: string;
 }

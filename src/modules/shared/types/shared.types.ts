@@ -26,10 +26,18 @@ export interface Meal {
 	ingredients: any;
 	ingredientAmounts?: any;
 	method: string;
+	_id?: string;
 }
 
 export interface Ingredient {
 	metric: string;
 	name: string;
 	category: string;
+}
+
+export interface IngredientProps {
+	metric: string;
+	name: string;
+	category: string;
+	amount: number;
 }

@@ -1,16 +1,3 @@
 @forward 'base';
 @use 'abstract' as *;
-
-html,
-body {
-	padding: 0;
-	margin: 0;
-	font-family: Helvetica, sans-serif;
-
-	// background-color: #5B6FFF;
-}
-
-* {
-	box-sizing: border-box;
-	font-size: 62.5%;
-}
+@use 'pages' as *;

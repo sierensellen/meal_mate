@@ -1,0 +1,36 @@
+@use 'styles/abstract' as *;
+
+.c-ingredients-list {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+
+	// border-top: 1px solid black;
+	border-bottom: 1px solid black;
+
+	&__ingredient {
+		font-size: 2rem;
+		display: flex;
+		width: 100%;
+		padding: $spacer;
+		align-items: center;
+
+		&--amount {
+			// justify-self: flex-end;
+			text-align: right;
+			width: 100%;
+		}
+
+		&--name {
+			font-weight: 700;
+		}
+
+		&--metric {
+			padding: $spacer-small $spacer;
+			border-radius: 15px;
+			background-color: #e6e6e6;
+			margin: 0 10px;
+			font-size: 1.2rem;
+		}
+	}
+}

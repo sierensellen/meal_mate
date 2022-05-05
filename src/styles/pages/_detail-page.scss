@@ -1,0 +1,11 @@
+@use 'styles/abstract' as *;
+
+.detail-page {
+	&--method {
+		padding: $spacer;
+
+		p {
+			font-size: 2rem;
+		}
+	}
+}
