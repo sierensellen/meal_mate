@@ -14,20 +14,6 @@ const Home: NextPage<HomeProps> = () => {
 	const { data: meals } = useGetMeals();
 
 	/**
-	 * effects
-	 */
-
-	// useEffect(() => {
-	// 	meals && setMappedMeals(mapMeals(meals));
-	// }, [meals]);
-
-	/**
-	 * mapping
-	 */
-
-	// console.log('mealcards', mealCards)
-
-	/**
 	 * render
 	 */
 

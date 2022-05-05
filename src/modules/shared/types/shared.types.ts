@@ -7,6 +7,10 @@ export interface DefaultComponentProps {
 	className?: string;
 }
 
+/**
+ * Meals
+ */
+
 export interface Ingredients {
 	title: string;
 }
@@ -40,4 +44,13 @@ export interface IngredientProps {
 	name: string;
 	category: string;
 	amount: number;
+}
+
+/**
+ * Shopping list
+ */
+
+export interface ShoppingListItem {
+	id: string;
+	mealId: string;
 }

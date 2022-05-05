@@ -22,6 +22,7 @@ const Card: FC<CardProps> = ({
 	icons,
 	className,
 	id,
+	button,
 }) => {
 	return (
 		<a href={`/meals/${id}`}>
@@ -53,6 +54,7 @@ const Card: FC<CardProps> = ({
 						))}
 					</div> */}
 				</div>
+				{button && button}
 			</article>
 		</a>
 	);
