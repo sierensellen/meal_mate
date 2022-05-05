@@ -5,19 +5,74 @@ import { Meal } from '@shared/types';
 import { mapWashing } from '@shared/utils';
 
 export default async function handler(req, res) {
+	const { id } = req.query;
+	console.log('api', id);
+
 	if (req.method === 'GET') {
 		const client = await MongoClient.connect(process.env.MONGODB_URI);
 		const db = client.db('Meals');
-		const meals = await db.collection('Meals').find({}).toArray();
+		const meal = await db
+			.collection('Meals')
+			.find({ _id: new ObjectId(id) })
+			.next();
+
+		console.log(meal);
+
+		const ingredients = await db
+			.collection('Ingredients-Meal')
+			.find({ meal_id: new ObjectId(id) })
+			.toArray();
+
+		console.log('ingredients', ingredients);
+
+		const mappedIngredients = await Promise.all(
+			ingredients.map(async (ingredient) => {
+				const foundIngredient = await db
+					.collection('Ingredients')
+					.find({ _id: new ObjectId(ingredient.ingredient_id) })
+					.next();
+
+				console.log('found ingredient', foundIngredient);
+				ingredient.metric = foundIngredient.metric;
+				ingredient.name = foundIngredient.name;
+				return ingredient;
+			})
+		);
 
 		// Map over meals when ingredients
-		const mealsWithIngredients = await getIngredients(db, meals);
-
-		const mappedMeals = mapMeals(mealsWithIngredients);
+		// const mealsWithIngredients = await getIngredients(db, meals);
+		const mappedMeal = {
+			title: meal.name,
+			tags: [
+				{
+					label: meal.price,
+					iconName: Icons.Vriezer,
+				},
+				{
+					label: mapWashing(meal.washing),
+					iconName: Icons.Vriezer,
+				},
+				{
+					label: meal.time,
+					iconName: Icons.Vriezer,
+				},
+			],
+			// iconse: meal.icons,
+			color: meal.color,
+			bgColor: meal.bgColor,
+			rotation: meal.rotation,
+			scale: meal.scale,
+			posX: meal.positionX,
+			posY: meal.positionY,
+			id: meal._id,
+			method: meal.method,
+			ingredients: mappedIngredients,
+		};
+		// const mappedMeals = mapMeals(mealsWithIngredients);
 
 		client.close();
 		// res.status(201).json({ message: "Data inserted successfully!" });
-		res.json(mappedMeals);
+		res.json(mappedMeal);
 	}
 }
 

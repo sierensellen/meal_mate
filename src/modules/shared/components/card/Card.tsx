@@ -21,33 +21,40 @@ const Card: FC<CardProps> = ({
 	tags,
 	icons,
 	className,
+	id,
 }) => {
 	return (
-		<article className={clsx(className, styles['c-card'])}>
-			<div className={styles['c-card__image']}>
-				<Illustration
-					color={color}
-					bgColor={bgColor}
-					rotation={rotation}
-					scale={scale}
-					positionX={posX}
-					positionY={posY}
-				/>
-			</div>
-			<div className={styles['c-card__content']}>
-				<h3>{title}</h3>
-				<div className={styles['c-card__tags']}>
-					{tags.map((tag, index) => {
-						return <Tag key={`tag-${index}`} {...tag} />;
-					})}
+		<a href={`/meals/${id}`}>
+			<article className={clsx(className, styles['c-card'])}>
+				<div className={styles['c-card__image']}>
+					<Illustration
+						color={color}
+						bgColor={bgColor}
+						rotation={rotation}
+						scale={scale}
+						positionX={posX}
+						positionY={posY}
+					/>
 				</div>
-				<div className={styles['c-card__icons']}>
-					{icons.map((icon, index) => (
-						<Icon {...icon} className={styles['c-card__icon']} key={`icon-${index}`} />
-					))}
+				<div className={styles['c-card__content']}>
+					<h3>{title}</h3>
+					<div className={styles['c-card__tags']}>
+						{tags.map((tag, index) => {
+							return <Tag key={`tag-${index}`} {...tag} />;
+						})}
+					</div>
+					{/* <div className={styles['c-card__icons']}>
+						{icons.map((icon, index) => (
+							<Icon
+								{...icon}
+								className={styles['c-card__icon']}
+								key={`icon-${index}`}
+							/>
+						))}
+					</div> */}
 				</div>
-			</div>
-		</article>
+			</article>
+		</a>
 	);
 };
 
