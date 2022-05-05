@@ -9,4 +9,11 @@ export const cardMock = {
 		{ label: 'lang', iconName: Icons.Vriezer },
 	],
 	Icons: [{ name: Icons.Vriezer }],
+
+	rotation: 0.5,
+	scale: 0.5,
+	posX: 0.5,
+	posY: 0.5,
+	color: '#beecff',
+	bgcolor: '#fea4bd',
 };

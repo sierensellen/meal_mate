@@ -1,15 +1,3 @@
-const pathAliases = [
-	'account',
-	'auth',
-	'config',
-	'cp',
-	'home',
-	'i18n',
-	'media',
-	'navigation',
-	'reading-room',
-	'shared',
-	'visits',
-];
+const pathAliases = ['shared, meals, ingredients'];
 
 module.exports = pathAliases;
