@@ -9,9 +9,9 @@ import { CardProps } from '../Card/Card.types';
 import styles from './CardList.module.scss';
 import { CardListProps } from './CardList.types';
 
-import { useCreateShoppingListItem } from 'hooks/create-shopping-list-item';
-import { useDeleteShoppingListItem } from 'hooks/delete-shopping-list-item';
-import { useGetShoppingListItems } from 'hooks/get-shopping-list-items';
+import { useCreateShoppingListItem } from 'hooks/shopping-list/create-shopping-list-item';
+import { useDeleteShoppingListItem } from 'hooks/shopping-list/delete-shopping-list-item';
+import { useGetShoppingListItems } from 'hooks/shopping-list/get-shopping-list-items';
 
 const CardList: FC<CardListProps> = ({ cards }) => {
 	/**

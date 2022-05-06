@@ -9,7 +9,7 @@ import styles from './AddIngredientsForm.module.scss';
 import { AddIngredientFormState, AddIngredientsFormProps } from './AddIngredientsForm.types';
 
 import { Category } from '@ingredients/types';
-import { usePostIngredient } from 'hooks/post-ingredient';
+import { useCreateIngredient } from 'hooks/ingredients/create-ingredient';
 
 const AddIngredientsForm: FC<AddIngredientsFormProps> = ({ className, onCreate }) => {
 	/**
@@ -33,7 +33,7 @@ const AddIngredientsForm: FC<AddIngredientsFormProps> = ({ className, onCreate }
 	/**
 	 * Data
 	 */
-	const { mutateAsync: postIngredient } = usePostIngredient();
+	const { mutateAsync: postIngredient } = useCreateIngredient();
 
 	return (
 		<div className={className}>

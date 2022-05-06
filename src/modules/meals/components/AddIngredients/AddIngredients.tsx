@@ -5,7 +5,7 @@ import { Button, Input } from '@shared/components';
 import { AddIngredientsProps } from './AddIngredients.types';
 
 import { AddIngredientsForm } from '@ingredients/AddIngredientsForm';
-import { useGetIngredients } from 'hooks/get-ingredients';
+import { useGetIngredients } from 'hooks/ingredients/get-ingredients';
 
 const AddIngredients: FC<AddIngredientsProps> = ({ className, onSubmit }) => {
 	const { data: ingredients, refetch } = useGetIngredients();

@@ -2,10 +2,10 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 // import styles from 'styles/pages';
 
-import { Card, Illustration, Tag } from '@shared/components';
+import { Card } from '@shared/components';
 
 import { IngredientsList } from '@ingredients/IngredientsList';
-import { useGetMeal } from 'hooks/get-meal';
+import { useGetMeal } from 'hooks/meal/get-meal';
 
 const MealDetail = () => {
 	/**
@@ -20,7 +20,7 @@ const MealDetail = () => {
 	return (
 		<div className="container">
 			<Head>
-				<title>{meal && meal.titel}</title>
+				<title>{meal && meal.title}</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			{meal && (

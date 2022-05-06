@@ -1,10 +1,10 @@
 import { useMutation } from 'react-query';
 
-import { Meal } from '@shared/types';
+import { Ingredient } from '@shared/types';
 
-export const usePostMeal = () => {
-	return useMutation((data: Meal) =>
-		fetch('/api/meals/create', {
+export const useCreateIngredient = () => {
+	return useMutation((data: Ingredient) =>
+		fetch('/api/ingredients/create', {
 			method: 'POST',
 			body: JSON.stringify(data),
 			headers: {

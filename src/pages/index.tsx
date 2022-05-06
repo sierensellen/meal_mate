@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { CardList } from '@shared/components';
 import { HomeProps } from '@shared/types/Home.types';
 
-import { useGetMeals } from 'hooks/get-meals';
+import { useGetMeals } from 'hooks/meal/get-meals';
 
 const Home: NextPage<HomeProps> = () => {
 	/**

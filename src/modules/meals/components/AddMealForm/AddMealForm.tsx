@@ -21,7 +21,7 @@ import styles from './AddMealForm.module.scss';
 import { AddMealFormProps, AddMealFormState } from './AddMealForm.types';
 
 import { Afwas } from '@meals/types';
-import { usePostMeal } from 'hooks/post-meal';
+import { useCreateMeal } from 'hooks/meal/create-meal';
 
 const AddMealForm: FC<AddMealFormProps> = () => {
 	/**
@@ -64,7 +64,7 @@ const AddMealForm: FC<AddMealFormProps> = () => {
 	/**
 	 * Data
 	 */
-	const { mutateAsync: postMeal } = usePostMeal();
+	const { mutateAsync: postMeal } = useCreateMeal();
 
 	/**
 	 * State
