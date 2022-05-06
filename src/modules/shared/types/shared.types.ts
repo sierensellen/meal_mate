@@ -51,6 +51,6 @@ export interface IngredientProps {
  */
 
 export interface ShoppingListItem {
-	id: string;
+	_id: string;
 	mealId: string;
 }

@@ -79,7 +79,6 @@ const AddMealForm: FC<AddMealFormProps> = () => {
 			...item,
 			amount: 1,
 		}));
-		// console.log('amount', ingredientsWithAmount);
 		setValue('ingredients', ingredientsWithAmount);
 	};
 
@@ -99,7 +98,6 @@ const AddMealForm: FC<AddMealFormProps> = () => {
 				amount: currentValue,
 			});
 		}
-		// console.log('ingrdientamounts', ingredientAmounts);
 		setValue('ingredientAmounts', ingredientAmounts);
 	};
 
@@ -126,7 +124,6 @@ const AddMealForm: FC<AddMealFormProps> = () => {
 					/>
 					<Button
 						onClick={() => {
-							// console.log('clicked');
 							setIsCollapsed(!isCollapsed);
 						}}
 						className={styles['c-form__image--button']}
@@ -415,11 +412,8 @@ const AddMealForm: FC<AddMealFormProps> = () => {
 				>
 					<Input
 						onClick={handleSubmit((state) => {
-							console.log('success');
-							console.log(state);
 							const mappedIngredients = ingredients.map((ingredient) => {
 								const found = findIngredient(ingredient);
-								console.log('found', found);
 								ingredient.amount = found.amount;
 								return ingredient;
 							});
@@ -438,7 +432,6 @@ const AddMealForm: FC<AddMealFormProps> = () => {
 								ingredients: mappedIngredients,
 								method: state.method,
 							};
-							console.log('state dat naar db gestuurd wrodt', mappedMeal);
 							postMeal(mappedMeal);
 						})}
 						name={'submit'}

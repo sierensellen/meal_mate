@@ -1,10 +1,10 @@
 import { useMutation } from 'react-query';
 
-export const usePostCreateShoppingListItem = () => {
+export const useCreateShoppingListItem = () => {
 	return useMutation((id: string) =>
 		fetch('/api/shopping-list/create', {
 			method: 'POST',
-			body: JSON.stringify({ id }),
+			body: JSON.stringify({ mealId: id }),
 			headers: {
 				'Content-Type': 'application/json',
 			},

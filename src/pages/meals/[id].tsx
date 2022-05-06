@@ -14,11 +14,8 @@ const MealDetail = () => {
 
 	const router = useRouter();
 	const { id } = router.query;
-	console.log('page', id);
 
 	const { data: meal } = useGetMeal(id as string, !!id);
-	console.log('meal', meal);
-	meal && console.log(meal.color);
 
 	return (
 		<div className="container">

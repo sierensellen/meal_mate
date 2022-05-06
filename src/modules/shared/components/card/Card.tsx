@@ -40,7 +40,7 @@ const Card: FC<CardProps> = ({
 				<div className={styles['c-card__content']}>
 					<h3>{title}</h3>
 					<div className={styles['c-card__tags']}>
-						{tags.map((tag, index) => {
+						{tags?.map((tag, index) => {
 							return <Tag key={`tag-${index}`} {...tag} />;
 						})}
 					</div>

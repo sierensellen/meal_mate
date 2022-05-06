@@ -9,6 +9,7 @@ import { useGetIngredients } from 'hooks/get-ingredients';
 
 const AddIngredients: FC<AddIngredientsProps> = ({ className, onSubmit }) => {
 	const { data: ingredients, refetch } = useGetIngredients();
+
 	const [ingredientsState, setIngredientsState] = useState<
 		{
 			_id: string;
@@ -38,7 +39,6 @@ const AddIngredients: FC<AddIngredientsProps> = ({ className, onSubmit }) => {
 								});
 								if (found) {
 									const foundIndex = ingredientsState.indexOf(found);
-									// console.log('found index', foundIndex);
 									ingredientsState.splice(foundIndex, 1);
 								} else {
 									ingredientsState.push(ingredient);

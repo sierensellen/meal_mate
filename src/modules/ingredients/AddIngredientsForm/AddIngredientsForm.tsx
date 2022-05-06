@@ -83,7 +83,6 @@ const AddIngredientsForm: FC<AddIngredientsFormProps> = ({ className, onCreate }
 				/>
 				<Button
 					onClick={handleSubmit((state) => {
-						console.log('succes added ingredient');
 						postIngredient(state).then(() => onCreate?.());
 					})}
 				>

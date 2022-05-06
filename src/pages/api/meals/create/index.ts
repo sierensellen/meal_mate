@@ -9,8 +9,6 @@ export default async function handler(req, res) {
 		const resultMeals = await insertOne(db, 'Meals', mappedMeal);
 		const mappedIngredients = mapIngredients(data, resultMeals);
 		const resultIngredients = await insertMany(db, 'Ingredients-Meal', mappedIngredients);
-		console.log('meal inserted', resultMeals);
-		console.log(resultIngredients);
 		client.close();
 		res.status(201).json({ message: 'Data inserted successfully!' });
 	}

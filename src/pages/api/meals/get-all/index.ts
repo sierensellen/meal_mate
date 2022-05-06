@@ -16,8 +16,7 @@ export default async function handler(req, res) {
 		const mappedMeals = mapMeals(mealsWithIngredients);
 
 		client.close();
-		// res.status(201).json({ message: "Data inserted successfully!" });
-		res.json(mappedMeals);
+		res.status(201).json(mappedMeals);
 	}
 }
 

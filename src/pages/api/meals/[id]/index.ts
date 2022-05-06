@@ -6,7 +6,6 @@ import { mapWashing } from '@shared/utils';
 
 export default async function handler(req, res) {
 	const { id } = req.query;
-	console.log('api', id);
 
 	if (req.method === 'GET') {
 		const client = await MongoClient.connect(process.env.MONGODB_URI);
@@ -16,14 +15,10 @@ export default async function handler(req, res) {
 			.find({ _id: new ObjectId(id) })
 			.next();
 
-		console.log(meal);
-
 		const ingredients = await db
 			.collection('Ingredients-Meal')
 			.find({ meal_id: new ObjectId(id) })
 			.toArray();
-
-		console.log('ingredients', ingredients);
 
 		const mappedIngredients = await Promise.all(
 			ingredients.map(async (ingredient) => {
@@ -32,7 +27,6 @@ export default async function handler(req, res) {
 					.find({ _id: new ObjectId(ingredient.ingredient_id) })
 					.next();
 
-				console.log('found ingredient', foundIngredient);
 				ingredient.metric = foundIngredient.metric;
 				ingredient.name = foundIngredient.name;
 				return ingredient;
@@ -71,8 +65,7 @@ export default async function handler(req, res) {
 		// const mappedMeals = mapMeals(mealsWithIngredients);
 
 		client.close();
-		// res.status(201).json({ message: "Data inserted successfully!" });
-		res.json(mappedMeal);
+		res.status(201).json(mappedMeal);
 	}
 }
 
@@ -87,7 +80,6 @@ const getIngredients = async (db, meals: Document[]): Promise<Meal[]> => {
 							.collection('Ingredients')
 							.find({ _id: new ObjectId(ingredientId) })
 							.toArray();
-						console.log(JSON.parse(JSON.stringify(ingredientObject)));
 
 						return JSON.parse(JSON.stringify(ingredientObject[0]));
 					})
