@@ -1,0 +1,47 @@
+@use 'styles/abstract' as *;
+
+.c-add-ingredients {
+	&__form {
+		border-bottom: 1px solid black;
+		position: sticky;
+		top: 0;
+		background-color: #beecff;
+		z-index: 5;
+
+		&--list {
+			overflow-y: scroll;
+			padding-bottom: 49px;
+		}
+	}
+
+	&__ingredient {
+		// border-top: 1px solid black;
+		border-bottom: 1px solid black;
+		display: block;
+
+		span {
+			font-size: 2rem;
+			display: block;
+			padding: $spacer-big $spacer;
+			margin-left: 0;
+		}
+
+		input[type='checkbox'] {
+			display: none;
+		}
+
+		input[type='checkbox']:checked + span {
+			background-color: pink;
+		}
+	}
+
+	&__button-wrapper {
+		background-color: pink;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		position: fixed;
+		bottom: 0;
+		border-top: 1px solid black;
+	}
+}

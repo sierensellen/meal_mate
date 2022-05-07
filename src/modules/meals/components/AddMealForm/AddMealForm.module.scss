@@ -3,6 +3,10 @@
 .c-form {
 	// padding-bottom: 300px;
 
+	// &__noscroll {
+	// 	overflow: hidden;
+	// }
+
 	p {
 		font-size: 2rem;
 
@@ -26,10 +30,41 @@
 		border: none;
 		padding: $spacer-big;
 		border-top: 1px solid black;
-		border-bottom: 1px solid black;
+
+		// border-bottom: 1px solid black;
 
 		&--bools {
 			background-color: #beecff;
+
+			p {
+				text-align: center;
+			}
+		}
+
+		&--method {
+			background: #ffd336;
+		}
+
+		&--ingredients {
+			background-color: #adb7ff;
+
+			&--ingredient {
+				display: flex;
+				align-items: center;
+
+				label,
+				p {
+					margin-right: $spacer;
+				}
+
+				// &--button-text {
+				// 	margin: 0;
+				// }
+			}
+
+			a {
+				text-align: center;
+			}
 		}
 
 		&--submit {
@@ -56,16 +91,28 @@
 
 			p {
 				display: inline;
+				margin: $spacer;
+
+				&:nth-child(1) {
+					margin-left: 0;
+				}
+
+				&:nth-last-child(1) {
+					margin-right: 0;
+				}
 			}
 
 			div {
 				display: inline-block;
-				margin: 0 $spacer;
 			}
 		}
 	}
 }
 
 .ingredientList {
-	padding-bottom: 200px;
+	// padding-bottom: 200px;
+	display: grid;
+	grid-template-columns: 1fr;
+	max-height: 100vh;
+	grid-template-rows: min-content 1fr min-content;
 }

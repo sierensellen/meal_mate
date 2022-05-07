@@ -10,18 +10,19 @@
 
 	&__icon {
 		position: absolute;
-		top: 1.5rem;
+		top: 0.6rem;
 		left: $spacer;
+		z-index: 2;
 	}
 
 	.c-input {
 		font-size: 2rem;
 		border: black 1px solid;
 		border-radius: 24px;
-		background-color: transparent;
 		display: block;
 		position: relative;
 		padding: $spacer-small $spacer-small $spacer-small 35px;
+		background-color: white;
 
 		&[type='submit'] {
 			padding: $spacer-small $spacer;
@@ -43,6 +44,10 @@
 				border: none;
 				border-radius: 50px;
 			}
+		}
+
+		&[type='number'] {
+			max-width: 100px;
 		}
 
 		&[type='range'] {
@@ -162,6 +167,10 @@
 			font-size: 32px;
 			padding: $spacer-small;
 			padding-left: 0;
+
+			&:focus-visible {
+				outline: none;
+			}
 		}
 
 		.c-label__content {

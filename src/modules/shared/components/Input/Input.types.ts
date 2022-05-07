@@ -5,4 +5,5 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 	label?: string;
 	icon?: ReactNode;
 	big?: boolean;
+	checkbox?: boolean;
 }

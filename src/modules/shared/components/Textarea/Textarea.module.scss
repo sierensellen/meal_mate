@@ -8,14 +8,18 @@
 		margin-left: $spacer;
 	}
 
-	.c-input {
-		font-size: 2rem;
+	.c-textarea {
+		font-size: 1.5rem;
 		border: black 1px solid;
 		border-radius: 24px;
-		background-color: transparent;
+		background-color: white;
 		display: block;
+		width: 100%;
 		position: relative;
-		padding: $spacer-small $spacer-small $spacer-small 35px;
+		padding: $spacer-big;
+		margin-bottom: 100px;
+		font-family: Helvetica, sans-serif;
+		height: 80vh;
 
 		&::placeholder {
 			color: $c-grey;
