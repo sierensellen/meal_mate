@@ -374,33 +374,24 @@ const AddMealForm: FC<AddMealFormProps> = () => {
 				</fieldset>
 				<fieldset>
 					{ingredients?.map((ingredient) => {
+						const foundIngredient = findIngredient(ingredient);
 						return (
 							<div key={ingredient._id}>
-								<Controller
+								return (
+								<Input
 									name={ingredient.name}
-									control={control}
-									render={({ field }) => {
-										const foundIngredient = findIngredient(ingredient);
-										return (
-											<Input
-												{...field}
-												name={ingredient.name}
-												type="number"
-												step={0.1}
-												icon={<Icon name={Icons.Vriezer} />}
-												onChange={(e) => {
-													setIngredientsAmountValue(
-														ingredient,
-														e.currentTarget.value
-													);
-												}}
-												value={
-													foundIngredient ? foundIngredient.amount : ''
-												}
-											/>
+									type="number"
+									step={0.1}
+									icon={<Icon name={Icons.Vriezer} />}
+									onChange={(e) => {
+										setIngredientsAmountValue(
+											ingredient,
+											e.currentTarget.value
 										);
 									}}
+									value={foundIngredient ? foundIngredient.amount : ''}
 								/>
+								);
 								<p>{ingredient.metric}</p>
 								<p>{ingredient.name}</p>
 							</div>

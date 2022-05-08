@@ -1,3 +1,5 @@
+import { IconProps, TagProps } from '@shared/components';
+
 export interface Image {
 	path: string;
 	alt?: string;
@@ -27,22 +29,35 @@ export interface Meal {
 	time: number;
 	washing: string;
 	freezer: boolean;
-	ingredients: any;
+	ingredients: Ingredient[] | IngredientWithAmount[];
 	ingredientAmounts?: any;
 	method: string;
 	_id?: string;
 }
 
+export interface ParsedMeal {
+	title: string;
+	tags: TagProps[];
+	icons?: IconProps[];
+	color: string;
+	bgColor: string;
+	rotation: number;
+	scale: number;
+	posX: number;
+	posY: number;
+	id: string;
+	method: string;
+	ingredients: IngredientWithAmount[];
+}
+
 export interface Ingredient {
+	_id: string;
 	metric: string;
 	name: string;
 	category: string;
 }
 
-export interface IngredientProps {
-	metric: string;
-	name: string;
-	category: string;
+export interface IngredientWithAmount extends Ingredient {
 	amount: number;
 }
 

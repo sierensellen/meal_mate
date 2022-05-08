@@ -1,8 +1,8 @@
 import { useQuery, UseQueryResult } from 'react-query';
 
-import { CardProps } from '@shared/components';
+import { ParsedMeal } from '@shared/types';
 
-export const useGetMeal = (id: string, enabled: boolean): UseQueryResult<CardProps> => {
+export const useGetMeal = (id: string, enabled: boolean): UseQueryResult<ParsedMeal> => {
 	return useQuery('meals', () => fetch(`/api/meals/${id}`).then((res) => res.json()), {
 		keepPreviousData: true,
 		enabled,

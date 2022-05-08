@@ -1,27 +1,27 @@
 import clsx from 'clsx';
-import Image from 'next/image';
 import React, { FC } from 'react';
 
 import { Illustration } from '@shared/components/Illustration';
 
-import Icon from '../Icon/Icon';
 import Tag from '../Tag/Tag';
 
 import styles from './Card.module.scss';
 import { CardProps } from './Card.types';
 
 const Card: FC<CardProps> = ({
-	color,
-	bgColor,
-	rotation,
-	scale,
-	posX,
-	posY,
-	title,
-	tags,
-	icons,
+	meal: {
+		color,
+		bgColor,
+		rotation,
+		scale,
+		posX,
+		posY,
+		title,
+		tags,
+		// icons,
+		id,
+	},
 	className,
-	id,
 	button,
 }) => {
 	return (

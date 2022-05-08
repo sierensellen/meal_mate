@@ -1,6 +1,6 @@
 import { Document, MongoClient, ObjectId } from 'mongodb';
 
-import { CardProps, Icons } from '@shared/components';
+import { Icons } from '@shared/components';
 import { Meal } from '@shared/types';
 import { mapWashing } from '@shared/utils';
 
@@ -92,38 +92,4 @@ const getIngredients = async (db, meals: Document[]): Promise<Meal[]> => {
 		})
 	);
 	return parsedMeals as Meal[];
-};
-
-const mapMeals = (meals: Meal[]): CardProps[] => {
-	return meals.map((meal) => {
-		const icons = [];
-
-		meal.freezer && icons.push(Icons.Vriezer);
-
-		return {
-			title: meal.name,
-			tags: [
-				{
-					label: meal.price,
-					iconName: Icons.Vriezer,
-				},
-				{
-					label: mapWashing(meal.washing),
-					iconName: Icons.Vriezer,
-				},
-				{
-					label: meal.time,
-					iconName: Icons.Vriezer,
-				},
-			],
-			icons,
-			color: meal.color,
-			bgColor: meal.bgColor,
-			rotation: meal.rotation,
-			scale: meal.scale,
-			posX: meal.positionX,
-			posY: meal.positionY,
-			id: meal._id,
-		};
-	});
 };

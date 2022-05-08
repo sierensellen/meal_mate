@@ -1,16 +1,19 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-// import styles from 'styles/pages';
 
-import { Card } from '@shared/components';
+import { Button, Card } from '@shared/components';
 
 import { IngredientsList } from '@ingredients/IngredientsList';
 import { useGetMeal } from 'hooks/meal/get-meal';
+import { useCreateShoppingListItem } from 'hooks/shopping-list/create-shopping-list-item';
+import { useDeleteShoppingListItem } from 'hooks/shopping-list/delete-shopping-list-item';
 
 const MealDetail = () => {
 	/**
 	 * hooks
 	 */
+	const { mutateAsync: createListItem } = useCreateShoppingListItem();
+	const { mutateAsync: deleteListItem } = useDeleteShoppingListItem();
 
 	const router = useRouter();
 	const { id } = router.query;
@@ -25,8 +28,10 @@ const MealDetail = () => {
 			</Head>
 			{meal && (
 				<main className="detail-page">
-					<Card {...meal} />
+					<Card meal={meal} />
 					<IngredientsList ingredients={meal.ingredients} />
+					<Button onClick={() => createListItem(meal.id)}>Op het lijstje</Button>
+					<Button onClick={() => deleteListItem(meal.id)}>Remove</Button>
 					<div className="detail-page--method">
 						<p>Dit is hoe het moet: </p>
 						<p>{meal.method}</p>

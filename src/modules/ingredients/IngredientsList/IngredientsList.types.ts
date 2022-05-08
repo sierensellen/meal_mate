@@ -1,5 +1,5 @@
-import { IngredientProps } from '@shared/types/shared.types';
+import { IngredientWithAmount } from '@shared/types/shared.types';
 
 export interface IngredientsListProps {
-	ingredients: IngredientProps[];
+	ingredients: IngredientWithAmount[];
 }

@@ -13,6 +13,10 @@ const Home: NextPage<HomeProps> = () => {
 
 	const { data: meals } = useGetMeals();
 
+	const mealCards = meals?.map((meal) => ({
+		meal: meal,
+	}));
+
 	/**
 	 * render
 	 */
@@ -23,7 +27,7 @@ const Home: NextPage<HomeProps> = () => {
 				<title>Create Next App</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<main>{meals && <CardList cards={meals} />}</main>
+			<main>{meals && <CardList cards={mealCards} />}</main>
 		</div>
 	);
 };

@@ -1,10 +1,9 @@
 import React, { FC, MouseEvent } from 'react';
 
-import { ShoppingListItem } from '@shared/types';
+import { ParsedMeal, ShoppingListItem } from '@shared/types';
 
 import { Button } from '../Button';
 import Card from '../Card/Card';
-import { CardProps } from '../Card/Card.types';
 
 import styles from './CardList.module.scss';
 import { CardListProps } from './CardList.types';
@@ -26,7 +25,7 @@ const CardList: FC<CardListProps> = ({ cards }) => {
 	 * Callbacks
 	 */
 
-	const onButtonClick = async (e: MouseEvent, card: CardProps) => {
+	const onButtonClick = async (e: MouseEvent, card: ParsedMeal) => {
 		e.preventDefault(); // Stop event bubbling
 		try {
 			await createListItem(card.id);
@@ -53,7 +52,9 @@ const CardList: FC<CardListProps> = ({ cards }) => {
 	return (
 		<div className={styles['c-card-list']}>
 			{cards.map((card, index) => {
-				const shoppingListItem = shoppingListItems?.find((item) => item.mealId === card.id);
+				const shoppingListItem = shoppingListItems?.find(
+					(item) => item.mealId === card.meal.id
+				);
 				return (
 					<Card
 						{...card}
@@ -61,7 +62,7 @@ const CardList: FC<CardListProps> = ({ cards }) => {
 						key={`card-${index}`}
 						button={
 							<>
-								<Button onClick={(e) => onButtonClick(e, card)}>
+								<Button onClick={(e) => onButtonClick(e, card.meal)}>
 									Op het lijstje {shoppingListItem ? '(x)' : ''}
 								</Button>
 								<Button onClick={(e) => onDeleteClick(e, shoppingListItem)}>

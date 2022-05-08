@@ -18,8 +18,6 @@ const AddIngredientsForm: FC<AddIngredientsFormProps> = ({ className, onCreate }
 	const {
 		control,
 		handleSubmit,
-		watch,
-		setValue,
 		formState: { errors },
 	} = useForm<AddIngredientFormState>({
 		resolver: yupResolver(ADD_INGREDIENT_FORM_SCHEMA()),
