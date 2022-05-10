@@ -39,12 +39,12 @@ const Home: NextPage<HomeProps> = () => {
 	 */
 
 	return (
-		<div className="container">
+		<div>
 			<Head>
 				<title>Create Next App</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<main className="content">
+			<main className="container">
 				<Sidebar>
 					{['price', 'time', 'washing'].map((value) => {
 						let iconValue = undefined;
@@ -136,7 +136,9 @@ const Home: NextPage<HomeProps> = () => {
 						);
 					})}
 				</Sidebar>
-				{meals && <CardList className="cardlist" cards={meals} />}
+				<div className="content_with_sidebar">
+					{meals && <CardList className="cardlist" cards={meals} />}
+				</div>
 			</main>
 		</div>
 	);
