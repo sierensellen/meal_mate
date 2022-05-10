@@ -1,7 +1,7 @@
 export const enum Afwas {
-	Veel = 'VEEL',
-	Weinig = 'WEINIG',
-	Gemiddeld = 'GEMIDDELD',
+	Veel = 3,
+	Gemiddeld = 2,
+	Weinig = 1,
 }
 
 // Db -> [VEEL, GEMIDDELD, WEINIG]

@@ -5,10 +5,44 @@ import { Meal } from '@shared/types';
 import { mapWashing } from '@shared/utils';
 
 export default async function handler(req, res) {
-	if (req.method === 'GET') {
+	if (req.method === 'POST') {
+		const data = req.body;
+		console.log('body', data);
 		const client = await MongoClient.connect(process.env.MONGODB_URI);
 		const db = client.db('Meals');
-		const meals = await db.collection('Meals').find({}).toArray();
+
+		let meals = [];
+		switch (data.sortValue) {
+			case 'price':
+				meals = await db
+					.collection('Meals')
+					.find({})
+					.sort({ price: data.SortOrder })
+					.toArray();
+				break;
+			case 'time':
+				meals = await db
+					.collection('Meals')
+					.find({})
+					.sort({ time: data.SortOrder })
+					.toArray();
+				break;
+			case 'washing':
+				meals = await db
+					.collection('Meals')
+					.find({})
+					.sort({ washing: data.SortOrder })
+					.toArray();
+				break;
+			default:
+				meals = await db.collection('Meals').find({}).toArray();
+				break;
+		}
+
+		console.log(meals);
+		// const meals = await db.collection('Meals').find({}).sort({ price: -1 }).toArray();
+
+		// console.log(meals);
 
 		// Map over meals when ingredients
 		const mealsWithIngredients = await getIngredients(db, meals);
