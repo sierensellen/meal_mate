@@ -8,4 +8,17 @@
 	background-color: white;
 	display: inline-block;
 	margin: $spacer 0;
+
+	&__big {
+		// background-color: blue;
+		border: none;
+		border-radius: 0;
+		border-bottom: 1px solid black;
+		margin: 0;
+		background-color: transparent;
+
+		&--active {
+			background-color: #ffd336;
+		}
+	}
 }

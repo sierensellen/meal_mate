@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 import { Button, Input } from '@shared/components';
 
@@ -8,7 +8,12 @@ import { AddIngredientsProps } from './AddIngredients.types';
 import { AddIngredientsForm } from '@ingredients/AddIngredientsForm';
 import { useGetIngredients } from 'hooks/get-ingredients';
 
-const AddIngredients: FC<AddIngredientsProps> = ({ checkedIngredients, className, onSubmit }) => {
+const AddIngredients: FC<AddIngredientsProps> = ({
+	checkedIngredients,
+	className,
+	onSubmit,
+	isOpened,
+}) => {
 	const { data: ingredients, refetch } = useGetIngredients();
 	const [ingredientsState, setIngredientsState] = useState<
 		{
@@ -21,6 +26,11 @@ const AddIngredients: FC<AddIngredientsProps> = ({ checkedIngredients, className
 	const onCreate = () => {
 		refetch();
 	};
+
+	useEffect(() => {
+		console.log('useffect');
+		isOpened && setIngredientsState(checkedIngredients);
+	}, [checkedIngredients, isOpened]);
 
 	return (
 		<div className={className}>
@@ -41,29 +51,31 @@ const AddIngredients: FC<AddIngredientsProps> = ({ checkedIngredients, className
 								key={key}
 								type="checkbox"
 								name={ingredient.name}
-								// checked={
-								// 	checkedIngredients &&
-								// 	checkedIngredients.find((element) => {
-								// 		return element._id === ingredient._id;
-								// 	})
-								// 		? true
-								// 		: false
-								// }
+								checked={
+									ingredientsState &&
+									ingredientsState.find((element) => {
+										return element._id === ingredient._id;
+									})
+										? true
+										: false
+								}
 								label={ingredient.name}
 								checkbox={true}
 								className={styles['c-add-ingredients__ingredient']}
 								onChange={() => {
-									const found = ingredientsState.find((element) => {
-										return element._id === ingredient._id;
-									});
-									if (found) {
-										const foundIndex = ingredientsState.indexOf(found);
-										// console.log('found index', foundIndex);
-										ingredientsState.splice(foundIndex, 1);
+									if (ingredientsState) {
+										const filtered = ingredientsState.filter((item) => {
+											return item._id !== ingredient._id;
+										});
+
+										const isEqualLength =
+											filtered.length === ingredientsState.length;
+										setIngredientsState(
+											isEqualLength ? [...filtered, ingredient] : filtered
+										);
 									} else {
-										ingredientsState.push(ingredient);
+										setIngredientsState([ingredient]);
 									}
-									setIngredientsState(ingredientsState);
 								}}
 							/>
 						);

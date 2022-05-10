@@ -493,6 +493,7 @@ const AddMealForm: FC<AddMealFormProps> = () => {
 			</form>
 			<Blade isOpened={bladeOpened}>
 				<AddIngredients
+					isOpened={bladeOpened}
 					className={styles['ingredientList']}
 					onSubmit={onSubmitIngredients}
 					checkedIngredients={ingredients}
