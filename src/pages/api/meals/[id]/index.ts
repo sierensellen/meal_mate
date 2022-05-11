@@ -5,9 +5,9 @@ import { Meal } from '@shared/types';
 import { mapWashing } from '@shared/utils';
 
 export default async function handler(req, res) {
-	const { id } = req.query;
-
 	if (req.method === 'GET') {
+		const { id } = req.query;
+
 		const client = await MongoClient.connect(process.env.MONGODB_URI);
 		const db = client.db('Meals');
 		const meal = await db

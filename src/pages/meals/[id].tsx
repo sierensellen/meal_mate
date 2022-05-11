@@ -7,16 +7,21 @@ import { IngredientsList } from '@ingredients/IngredientsList';
 import { useGetMeal } from 'hooks/meal/get-meal';
 import { useCreateShoppingListItem } from 'hooks/shopping-list/create-shopping-list-item';
 import { useDeleteShoppingListItem } from 'hooks/shopping-list/delete-shopping-list-item';
+import { useGetShoppingListItemByMealId } from 'hooks/shopping-list/get-shopping-list-item-by-meal-id';
 
 const MealDetail = () => {
 	/**
 	 * hooks
 	 */
-	const { mutateAsync: createListItem } = useCreateShoppingListItem();
-	const { mutateAsync: deleteListItem } = useDeleteShoppingListItem();
-
 	const router = useRouter();
 	const { id } = router.query;
+
+	const { data: shoppingListItem } = useGetShoppingListItemByMealId(
+		id as string,
+		typeof id === 'string'
+	);
+	const { mutateAsync: createListItem } = useCreateShoppingListItem();
+	const { mutateAsync: deleteListItem } = useDeleteShoppingListItem();
 
 	const { data: meal } = useGetMeal(id as string, !!id);
 
