@@ -4,6 +4,7 @@ import React, { FC, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
 import {
+	Blade,
 	Button,
 	CheckboxSlider,
 	Icon,
@@ -13,6 +14,7 @@ import {
 	Select,
 	Textarea,
 } from '@shared/components';
+import Overlay from '@shared/components/Overlay/Overlay';
 
 import AddIngredients from '../AddIngredients/AddIngredients';
 
@@ -70,6 +72,7 @@ const AddMealForm: FC<AddMealFormProps> = () => {
 	 * State
 	 */
 	const [isCollapsed, setIsCollapsed] = useState<boolean>(true);
+	const [bladeOpened, setBladeOpened] = useState<boolean>(false);
 
 	/**
 	 * Callbacks
@@ -108,8 +111,14 @@ const AddMealForm: FC<AddMealFormProps> = () => {
 	 */
 	return (
 		<>
+			<Overlay
+				active={bladeOpened}
+				onClick={() => {
+					setBladeOpened(!bladeOpened);
+				}}
+			/>
 			<form
-				className={styles['c-form']}
+				className={clsx(styles['c-form'], bladeOpened && styles['c-form__noscroll'])}
 				action=""
 				onSubmit={(e) => {
 					e.preventDefault();
@@ -266,21 +275,6 @@ const AddMealForm: FC<AddMealFormProps> = () => {
 					{errors.name && (
 						<p className={styles['c-form__error']}>{errors.name?.message}</p>
 					)}
-					<Controller
-						name="method"
-						control={control}
-						render={({ field }) => (
-							<Textarea
-								{...field}
-								name="method"
-								label={'Bereidingswijze'}
-								placeholder={'Beschrijf hier de stappen'}
-							/>
-						)}
-					/>
-					{errors.name && (
-						<p className={styles['c-form__error']}>{errors.name?.message}</p>
-					)}
 				</fieldset>
 				<fieldset
 					className={clsx(styles['c-form__fieldset--inputs'], styles['c-form__fieldset'])}
@@ -375,10 +369,18 @@ const AddMealForm: FC<AddMealFormProps> = () => {
 						<p className={styles['c-form__error']}>{errors.freezer?.message}</p>
 					)}
 				</fieldset>
-				<fieldset>
+				<fieldset
+					className={clsx(
+						styles['c-form__fieldset--ingredients'],
+						styles['c-form__fieldset']
+					)}
+				>
 					{ingredients?.map((ingredient) => {
 						return (
-							<div key={ingredient._id}>
+							<div
+								className={styles['c-form__fieldset--ingredients--ingredient']}
+								key={ingredient._id}
+							>
 								<Controller
 									name={ingredient.name}
 									control={control}
@@ -406,9 +408,51 @@ const AddMealForm: FC<AddMealFormProps> = () => {
 								/>
 								<p>{ingredient.metric}</p>
 								<p>{ingredient.name}</p>
+								<Button
+									onClick={() => {
+										console.log('ingredient', ingredient);
+										console.log('ingredient in array', ingredients[ingredient]);
+										ingredients.map((mapIngredient, index) => {
+											if (mapIngredient === ingredient) {
+												ingredients.splice(index, 1);
+											}
+											console.log('resutl', ingredients);
+											setValue('ingredients', ingredients);
+										});
+									}}
+								>
+									x
+								</Button>
 							</div>
 						);
 					})}
+					<Button
+						onClick={() => {
+							console.log('clicked');
+							setBladeOpened(!bladeOpened);
+						}}
+					>
+						Voeg ingredienten toe
+					</Button>
+				</fieldset>
+				<fieldset
+					className={clsx(styles['c-form__fieldset--method'], styles['c-form__fieldset'])}
+				>
+					<Controller
+						name="method"
+						control={control}
+						render={({ field }) => (
+							<Textarea
+								{...field}
+								name="method"
+								label={'Bereidingswijze'}
+								placeholder={'Beschrijf hier de stappen'}
+							/>
+						)}
+					/>
+					{errors.method && (
+						<p className={styles['c-form__error']}>{errors.method?.message}</p>
+					)}
 				</fieldset>
 				<fieldset
 					className={clsx(styles['c-form__fieldset--submit'], styles['c-form__fieldset'])}
@@ -447,7 +491,14 @@ const AddMealForm: FC<AddMealFormProps> = () => {
 					/>
 				</fieldset>
 			</form>
-			<AddIngredients className={styles['ingredientList']} onSubmit={onSubmitIngredients} />
+			<Blade isOpened={bladeOpened}>
+				<AddIngredients
+					isOpened={bladeOpened}
+					className={styles['ingredientList']}
+					onSubmit={onSubmitIngredients}
+					checkedIngredients={ingredients}
+				/>
+			</Blade>
 		</>
 	);
 };

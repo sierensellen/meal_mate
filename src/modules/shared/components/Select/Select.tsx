@@ -8,7 +8,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
 		// console.log(options);
 		return (
 			<label className={styles['c-label']}>
-				<span className={styles['c-label__content']}>{label && label}</span>
+				{label && <span className={styles['c-label__content']}>{label}</span>}
 				<span className={styles['c-label__icon']}>{icon && icon}</span>
 				<select
 					ref={ref}

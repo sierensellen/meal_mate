@@ -37,7 +37,7 @@ const AddIngredientsForm: FC<AddIngredientsFormProps> = ({ className, onCreate }
 
 	return (
 		<div className={className}>
-			<form>
+			<form className={styles['c-form']}>
 				<Controller
 					name="name"
 					control={control}

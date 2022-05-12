@@ -5,10 +5,10 @@ import styles from './Input.module.scss';
 import { InputProps } from './Input.types';
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-	({ onChange, icon, big = false, label, ...attributes }, ref) => {
+	({ onChange, className, checkbox = false, icon, big = false, label, ...attributes }, ref) => {
 		return (
-			<label className={clsx(styles['c-label'], big && styles['c-label__big'])}>
-				<span className={styles['c-label__content']}>{label && label}</span>
+			<label className={clsx(styles['c-label'], big && styles['c-label__big'], className)}>
+				{!checkbox && label && <span className={styles['c-label__content']}>{label}</span>}
 				<span className={styles['c-label__icon']}>{icon && icon}</span>
 				<input
 					ref={ref}
@@ -16,6 +16,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 					onChange={onChange}
 					{...attributes}
 				/>
+				{checkbox && <span className={styles['c-label__content']}>{label && label}</span>}
 			</label>
 		);
 	}

@@ -10,7 +10,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
 				<span className={styles['c-label__content']}>{label && label}</span>
 				<textarea
 					ref={ref}
-					className={styles['c-input']}
+					className={styles['c-textarea']}
 					onChange={onChange}
 					{...attributes}
 				/>

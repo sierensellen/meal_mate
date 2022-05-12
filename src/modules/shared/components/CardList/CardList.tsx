@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import React, { FC } from 'react';
 
 import Card from '../Card/Card';
@@ -7,7 +8,7 @@ import { CardListProps } from './CardList.types';
 
 const CardList: FC<CardListProps> = ({ cards }) => {
 	return (
-		<div className={styles['c-card-list']}>
+		<div className={clsx(styles['c-card-list'])}>
 			{cards.map((card, index) => (
 				<Card {...card} className={styles['c-card-list__card']} key={`card-${index}`} />
 			))}

@@ -3,6 +3,7 @@ body {
 	padding: 0;
 	margin: 0;
 	font-family: Helvetica, sans-serif;
+	overflow-x: hidden;
 
 	// background-color: #5B6FFF;
 }
@@ -21,4 +22,8 @@ html {
 a {
 	text-decoration: none;
 	color: black;
+}
+
+.content_with_sidebar {
+	padding-left: 60px;
 }
