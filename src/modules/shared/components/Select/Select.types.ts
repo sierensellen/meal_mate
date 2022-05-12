@@ -8,6 +8,6 @@ export interface SelectProps extends InputHTMLAttributes<HTMLSelectElement> {
 }
 
 export interface OptionProps {
-	value: string;
+	value: number;
 	label: string;
 }

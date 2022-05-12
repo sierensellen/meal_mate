@@ -29,6 +29,13 @@ export interface Meal {
 	_id?: string;
 }
 
+export type SortOrder = number;
+export type SortValue = 'price' | 'time' | 'wahing';
+
+export enum SortValues {
+	Price = 'price',
+}
+
 export interface Ingredient {
 	metric: string;
 	name: string;

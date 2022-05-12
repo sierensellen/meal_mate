@@ -1,6 +1,6 @@
 import { Afwas } from '@meals/types';
 
-export const mapWashing = (value: string): string => {
+export const mapWashing = (value: number): string => {
 	switch (value) {
 		case Afwas.Weinig:
 			return 'Weinig';

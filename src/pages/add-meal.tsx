@@ -1,6 +1,9 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
 
+import { Button, Icon, Icons } from '@shared/components';
+import { Sidebar } from '@shared/components/Sidebar';
+
 import { AddMealForm } from '@meals/components/AddMealForm';
 
 const AddMealPage: NextPage = () => {
@@ -9,13 +12,16 @@ const AddMealPage: NextPage = () => {
 	 */
 
 	return (
-		<div className="container">
+		<div>
 			<Head>
 				<title>Create Next App</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<main>
-				<AddMealForm />
+			<main className="container">
+				<Sidebar />
+				<div className="content_with_sidebar">
+					<AddMealForm />
+				</div>
 			</main>
 		</div>
 	);
