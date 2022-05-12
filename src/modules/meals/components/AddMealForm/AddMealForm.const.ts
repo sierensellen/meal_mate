@@ -11,7 +11,7 @@ export const ADD_MEAL_FORM_SCHEMA = () => {
 		name: string().required('Geef je recept een naam'),
 		price: number().required('Hoeveel zal dit kosten?'),
 		time: number().required('Hoelang zal dat hier duren?'),
-		washing: string().required('Hoeveel langer zal het nog duren?'),
+		washing: number().required('Hoeveel langer zal het nog duren?'),
 		freezer: boolean().required('Mag het in de vriezer?'),
 		ingredients: mixed(),
 		ingredientAmounts: mixed(),
