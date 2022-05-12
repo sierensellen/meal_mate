@@ -16,4 +16,5 @@ export const enum Icons {
 	washing_up_down = 'washing_up_down',
 	washing_up = 'washing_up',
 	washing_down = 'washing_down',
+	hamburger = 'hamburger',
 }

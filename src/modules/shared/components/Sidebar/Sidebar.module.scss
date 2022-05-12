@@ -1,7 +1,33 @@
 .c-sidebar {
-	display: flex;
-	flex-flow: column;
 	background-color: #adb7ff;
 	height: 100vh;
 	position: fixed;
+	z-index: 4;
+	border-left: black 1px solid;
+	transition: all 1s;
+
+	&__visible {
+		display: flex;
+		flex-flow: column;
+	}
+
+	&__nav {
+		background-color: #adb7ff;
+		height: 100vh;
+		position: fixed;
+		z-index: 5;
+
+		&--content {
+			display: flex;
+			flex-flow: column;
+			padding: 3rem;
+			align-items: center;
+		}
+	}
+
+	&__open {
+		// transform: translateX(200px);
+		margin-left: 187px;
+		transition: all 1s;
+	}
 }

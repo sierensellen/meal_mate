@@ -8,6 +8,12 @@
 	transition: all 1s;
 	background-color: #adb7ff;
 
+	&__left {
+		right: auto;
+		left: 0;
+		transform: translateX(-100%);
+	}
+
 	&__open {
 		transform: translateX(0);
 		transition: all 1s;

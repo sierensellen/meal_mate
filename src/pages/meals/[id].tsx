@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 // import styles from 'styles/pages';
 
 import { Card, Illustration, Tag } from '@shared/components';
+import { Sidebar } from '@shared/components/Sidebar';
 
 import { IngredientsList } from '@ingredients/IngredientsList';
 import { useGetMeal } from 'hooks/get-meal';
@@ -28,11 +29,14 @@ const MealDetail = () => {
 			</Head>
 			{meal && (
 				<main className="detail-page">
-					<Card {...meal} />
-					<IngredientsList ingredients={meal.ingredients} />
-					<div className="detail-page--method">
-						<p>Dit is hoe het moet: </p>
-						<p>{meal.method}</p>
+					<Sidebar />
+					<div className="content_with_sidebar">
+						<Card {...meal} />
+						<IngredientsList ingredients={meal.ingredients} />
+						<div className="detail-page--method">
+							<p>Dit is hoe het moet: </p>
+							<p>{meal.method}</p>
+						</div>
 					</div>
 				</main>
 			)}
